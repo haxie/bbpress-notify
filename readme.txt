@@ -12,15 +12,17 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5X6KT
 This plugin integrates into bbPress and sends a notification via e-mail when new topics or replies are posted. It is fully configurable in the bbPress settings.
 
 Settings include:
-* Notification recipients for new topics
-* Notification recipients for new replies
-* Notification e-mail's subject and body for both new topics and replies
+* Notification recipients for new topics, * Notification recipients for new replies, * Notification e-mail's subject and body for both new topics and replies
 
 
 == Installation ==
 
 1. Upload the entire plugin folder via FTP to `/wp-content/plugins/`.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
+
+
+== Screenshots ==
+1. The settings page
 
 
 == Changelog ==
