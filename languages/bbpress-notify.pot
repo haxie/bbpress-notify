@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bbPress Notify 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/bbpress-notify\n"
-"POT-Creation-Date: 2012-02-27 21:54:18+00:00\n"
+"POT-Creation-Date: 2012-03-08 12:01:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,64 +46,64 @@ msgid ""
 "[reply-excerpt]"
 msgstr ""
 
-#: bbpress-notify.php:246
+#: bbpress-notify.php:312
 msgid "E-mail Notifications"
 msgstr ""
 
-#: bbpress-notify.php:249
+#: bbpress-notify.php:315
 msgid "Notifications about new topics are sent to"
 msgstr ""
 
-#: bbpress-notify.php:250 bbpress-notify.php:254
+#: bbpress-notify.php:316 bbpress-notify.php:319
 msgid "E-mail subject"
 msgstr ""
 
-#: bbpress-notify.php:251
+#: bbpress-notify.php:317
 msgid ""
 "E-mail body (template tags: [blogname], [topic-title], [topic-content], "
 "[topic-excerpt], [topic-author], [topic-url])"
 msgstr ""
 
-#: bbpress-notify.php:253
+#: bbpress-notify.php:318
 msgid "Notifications about replies are sent to"
 msgstr ""
 
-#: bbpress-notify.php:255
+#: bbpress-notify.php:320
 msgid ""
 "E-mail body (template tags: [blogname], [reply-title], [reply-content], "
 "[reply-excerpt], [reply-author], [reply-url])"
 msgstr ""
 
-#: bbpress-notify.php:271
+#: bbpress-notify.php:336
 msgid ""
 "Configure e-mail notifications when new topics and/or replies are posted."
 msgstr ""
 
-#: bbpress-notify.php:280 bbpress-notify.php:303
+#: bbpress-notify.php:344 bbpress-notify.php:365
 msgid "Blog owner"
 msgstr ""
 
-#: bbpress-notify.php:281 bbpress-notify.php:304
+#: bbpress-notify.php:345 bbpress-notify.php:366
 msgid "All Administrators"
 msgstr ""
 
-#: bbpress-notify.php:282 bbpress-notify.php:305
+#: bbpress-notify.php:346 bbpress-notify.php:367
+msgid "All Editors"
+msgstr ""
+
+#: bbpress-notify.php:347 bbpress-notify.php:368
 msgid "All Authors"
 msgstr ""
 
-#: bbpress-notify.php:283 bbpress-notify.php:306
+#: bbpress-notify.php:348 bbpress-notify.php:369
+msgid "All Contributors"
+msgstr ""
+
+#: bbpress-notify.php:349 bbpress-notify.php:370
 msgid "All Subscribers"
 msgstr ""
 
-#: bbpress-notify.php:284 bbpress-notify.php:307
-msgid "All Users"
-msgstr ""
-
-#: bbpress-notify.php:285 bbpress-notify.php:309
-msgid "None"
-msgstr ""
-
-#: bbpress-notify.php:333 bbpress-notify.php:347
+#: bbpress-notify.php:394 bbpress-notify.php:408
 msgid "Shortcodes"
 msgstr ""
 
