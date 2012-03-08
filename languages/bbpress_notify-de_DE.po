@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bbPress Notify 0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/bbpress-notify\n"
-"POT-Creation-Date: 2012-02-27 21:54:18+00:00\n"
-"PO-Revision-Date: 2012-02-27 22:55+0100\n"
+"POT-Creation-Date: 2012-03-08 12:01:33+00:00\n"
+"PO-Revision-Date: 2012-03-08 13:04+0100\n"
 "Last-Translator: Andreas Baumgartner <andreas.baumgartner@gmail.com>\n"
 "Language-Team: Andreas Baumgartner <mail@andreas.bz.it>\n"
 "Language: \n"
@@ -61,67 +61,67 @@ msgstr ""
 "Vorschau:\n"
 "[repy-excerpt]"
 
-#: bbpress-notify.php:246
+#: bbpress-notify.php:312
 msgid "E-mail Notifications"
 msgstr "E-Mail-Benachrichtigungen"
 
-#: bbpress-notify.php:249
+#: bbpress-notify.php:315
 msgid "Notifications about new topics are sent to"
 msgstr "E-Mail-Benachrichtigungen über neue Themen werden gesendet an"
 
-#: bbpress-notify.php:250
-#: bbpress-notify.php:254
+#: bbpress-notify.php:316
+#: bbpress-notify.php:319
 msgid "E-mail subject"
 msgstr "Betreff"
 
-#: bbpress-notify.php:251
+#: bbpress-notify.php:317
 msgid "E-mail body (template tags: [blogname], [topic-title], [topic-content], [topic-excerpt], [topic-author], [topic-url])"
 msgstr "Nachrichtentext (Variablen: [blogname], [topic-title], [topic-content], [topic-excerpt], [topic-author], [topic-url])"
 
-#: bbpress-notify.php:253
+#: bbpress-notify.php:318
 msgid "Notifications about replies are sent to"
 msgstr "E-Mail-Benachrichtigungen über neue Antworten werden gesendet an"
 
-#: bbpress-notify.php:255
+#: bbpress-notify.php:320
 msgid "E-mail body (template tags: [blogname], [reply-title], [reply-content], [reply-excerpt], [reply-author], [reply-url])"
 msgstr "Nachrichtentext (Variablen: [blogname], [reply-title], [reply-content], [reply-excerpt], [reply-author], [reply-url])"
 
-#: bbpress-notify.php:271
+#: bbpress-notify.php:336
 msgid "Configure e-mail notifications when new topics and/or replies are posted."
 msgstr "Lege fest, ob und wie E-Mail-Benachrichtigungen über neue Themen und/oder Antworten versendet werden."
 
-#: bbpress-notify.php:280
-#: bbpress-notify.php:303
+#: bbpress-notify.php:344
+#: bbpress-notify.php:365
 msgid "Blog owner"
 msgstr "Blog-Eigentümer"
 
-#: bbpress-notify.php:281
-#: bbpress-notify.php:304
+#: bbpress-notify.php:345
+#: bbpress-notify.php:366
 msgid "All Administrators"
 msgstr "alle Administratoren"
 
-#: bbpress-notify.php:282
-#: bbpress-notify.php:305
+#: bbpress-notify.php:346
+#: bbpress-notify.php:367
+msgid "All Editors"
+msgstr "alle Redakteure"
+
+#: bbpress-notify.php:347
+#: bbpress-notify.php:368
 msgid "All Authors"
 msgstr "alle Autoren"
 
-#: bbpress-notify.php:283
-#: bbpress-notify.php:306
+#: bbpress-notify.php:348
+#: bbpress-notify.php:369
+msgid "All Contributors"
+msgstr "alle Mitarbeiter"
+
+#: bbpress-notify.php:349
+#: bbpress-notify.php:370
 msgid "All Subscribers"
 msgstr "alle Abonnenten"
 
-#: bbpress-notify.php:284
-#: bbpress-notify.php:307
-msgid "All Users"
-msgstr "alle Benutzer"
-
-#: bbpress-notify.php:285
-#: bbpress-notify.php:309
-msgid "None"
-msgstr "niemanden"
-
-#: bbpress-notify.php:333
-#: bbpress-notify.php:347
+#: bbpress-notify.php:394
+#: bbpress-notify.php:408
 msgid "Shortcodes"
 msgstr "Variablen"
 
@@ -136,6 +136,12 @@ msgstr "Benachrichtigt alle registrierten Benutzer via E-Mail, sobald ein neues 
 #. Author of the plugin/theme
 msgid "Andreas Baumgartner"
 msgstr "Andreas Baumgartner"
+
+#~ msgid "All Users"
+#~ msgstr "alle Benutzer"
+
+#~ msgid "None"
+#~ msgstr "niemanden"
 
 #~ msgid "E-mail body (template tags: [TODO])"
 #~ msgstr "Text (template tags: [TODO])"
