@@ -2,10 +2,10 @@
 /*
 Plugin Name: bbPress Notify
 Description: Notifies all registered users by e-mail when a new bbPress topic is created.
-Version: 0.2
+Version: 0.2.1
 Author: Andreas Baumgartner
 
-$Id: bbpress-notify.php 24:b053f45feafb 2012-03-08 13:10 +0100 Andreas Baumgartner $
+$Id: bbpress-notify.php 28:ae397256e7ed 2012-10-18 15:45 +0200 Andreas Baumgartner $
 $Tag: tip $
 
 /*  Copyright 2012 Andreas Baumgartner (email: mail@andreas.bz.it)
@@ -174,6 +174,7 @@ function notify_new_topic($topic_id = 0, $forum_id = 0, $anonymous_data = false,
 	$topic_excerpt = html_entity_decode(strip_tags(bbp_get_topic_excerpt($topic_id, 100)), ENT_NOQUOTES, 'UTF-8');
 	$topic_author = bbp_get_topic_author($topic_id);
 	$topic_url = bbp_get_topic_permalink($topic_id);
+	$topic_reply = bbp_get_reply_url($topic_id);
 
 	$email_subject = str_replace('[blogname]', $blogname, $email_subject);
 	$email_subject = str_replace('[topic-title]', $topic_title, $email_subject);
@@ -181,6 +182,7 @@ function notify_new_topic($topic_id = 0, $forum_id = 0, $anonymous_data = false,
 	$email_subject = str_replace('[topic-excerpt]', $topic_excerpt, $email_subject);
 	$email_subject = str_replace('[topic-author]', $topic_author, $email_subject);
 	$email_subject = str_replace('[topic-url]', $topic_url, $email_subject);
+	$email_subject = str_replace('[topic-replyurl]', $topic_reply, $email_subject);
 
 	$email_body = str_replace('[blogname]', $blogname, $email_body);
 	$email_body = str_replace('[topic-title]', $topic_title, $email_body);
@@ -188,6 +190,7 @@ function notify_new_topic($topic_id = 0, $forum_id = 0, $anonymous_data = false,
 	$email_body = str_replace('[topic-excerpt]', $topic_excerpt, $email_body);
 	$email_body = str_replace('[topic-author]', $topic_author, $email_body);
 	$email_body = str_replace('[topic-url]', $topic_url, $email_body);
+	$email_body = str_replace('[topic-replyurl]', $topic_reply, $email_body);
 
 	send_notification($recipients, $email_subject, $email_body);
 }
@@ -275,6 +278,7 @@ function notify_new_reply($topic_id = 0, $forum_id = 0, $anonymous_data = false,
 	$topic_excerpt = html_entity_decode(strip_tags(bbp_get_topic_excerpt($topic_id, 100)), ENT_NOQUOTES, 'UTF-8');
 	$topic_author = bbp_get_topic_author($topic_id);
 	$topic_url = bbp_get_topic_permalink($topic_id);
+	$topic_reply = bbp_get_reply_url($topic_id);
 
 	$email_subject = str_replace('[blogname]', $blogname, $email_subject);
 	$email_subject = str_replace('[reply-title]', $topic_title, $email_subject);
@@ -282,6 +286,7 @@ function notify_new_reply($topic_id = 0, $forum_id = 0, $anonymous_data = false,
 	$email_subject = str_replace('[reply-excerpt]', $topic_excerpt, $email_subject);
 	$email_subject = str_replace('[reply-author]', $topic_author, $email_subject);
 	$email_subject = str_replace('[reply-url]', $topic_url, $email_subject);
+	$email_subject = str_replace('[reply-replyurl]', $topic_reply, $email_subject);
 
 	$email_body = str_replace('[blogname]', $blogname, $email_body);
 	$email_body = str_replace('[reply-title]', $topic_title, $email_body);
@@ -289,6 +294,7 @@ function notify_new_reply($topic_id = 0, $forum_id = 0, $anonymous_data = false,
 	$email_body = str_replace('[reply-excerpt]', $topic_excerpt, $email_body);
 	$email_body = str_replace('[reply-author]', $topic_author, $email_body);
 	$email_body = str_replace('[reply-url]', $topic_url, $email_body);
+	$email_body = str_replace('[reply-replyurl]', $topic_reply, $email_body);
 
 	send_notification($recipients, $email_subject, $email_body);
 }
@@ -314,10 +320,10 @@ function admin_settings() {
 	// Add form fields for all settings
 	add_settings_field('bbpress_notify_newtopic_recipients', __('Notifications about new topics are sent to', 'bbpress_notify'), _topic_recipients_inputfield, 'bbpress', 'bbpress_notify_options');
 	add_settings_field('bbpress_notify_newtopic_email_subject', __('E-mail subject', 'bbpress_notify'), _email_newtopic_subject_inputfield, 'bbpress', 'bbpress_notify_options');
-	add_settings_field('bbpress_notify_newtopic_email_body', __('E-mail body (template tags: [blogname], [topic-title], [topic-content], [topic-excerpt], [topic-author], [topic-url])', 'bbpress_notify'), _email_newtopic_body_inputfield, 'bbpress', 'bbpress_notify_options');
+	add_settings_field('bbpress_notify_newtopic_email_body', __('E-mail body (template tags: [blogname], [topic-title], [topic-content], [topic-excerpt], [topic-author], [topic-url], [topic-replyurl])', 'bbpress_notify'), _email_newtopic_body_inputfield, 'bbpress', 'bbpress_notify_options');
 	add_settings_field('bbpress_notify_newreply_recipients', __('Notifications about replies are sent to', 'bbpress_notify'), _reply_recipients_inputfield, 'bbpress', 'bbpress_notify_options');
 	add_settings_field('bbpress_notify_newreply_email_subject', __('E-mail subject', 'bbpress_notify'), _email_newreply_subject_inputfield, 'bbpress', 'bbpress_notify_options');
-	add_settings_field('bbpress_notify_newreply_email_body', __('E-mail body (template tags: [blogname], [reply-title], [reply-content], [reply-excerpt], [reply-author], [reply-url])', 'bbpress_notify'), _email_newreply_body_inputfield, 'bbpress', 'bbpress_notify_options');
+	add_settings_field('bbpress_notify_newreply_email_body', __('E-mail body (template tags: [blogname], [reply-title], [reply-content], [reply-excerpt], [reply-author], [reply-url], [reply-replyurl])', 'bbpress_notify'), _email_newreply_body_inputfield, 'bbpress', 'bbpress_notify_options');
 
 	// Register the settings as part of the bbPress settings
 	register_setting('bbpress', 'bbpress_notify_newtopic_recipients');
@@ -391,7 +397,7 @@ function _email_newtopic_subject_inputfield()
 function _email_newtopic_body_inputfield()
 {
 	printf('<textarea id="bbpress_notify_newtopic_email_body" name="bbpress_notify_newtopic_email_body" cols="50" rows="5">%s</textarea>', get_option('bbpress_notify_newtopic_email_body'));
-	printf('<p>%s: [blogname], [topic-title], [topic-content], [topic-excerpt], [topic-url], [topic-author]</p>', __('Shortcodes', 'bbpress_notify'));
+	printf('<p>%s: [blogname], [topic-title], [topic-content], [topic-excerpt], [topic-url], [topic-replyurl], [topic-author]</p>', __('Shortcodes', 'bbpress_notify'));
 }
 
 /* Show a <input> field for new reply e-mail subject */
@@ -405,7 +411,7 @@ function _email_newreply_subject_inputfield()
 function _email_newreply_body_inputfield()
 {
 	printf('<textarea id="bbpress_notify_newreply_email_body" name="bbpress_notify_newreply_email_body" cols="50" rows="5">%s</textarea>', get_option('bbpress_notify_newreply_email_body'));
-	printf('<p>%s: [blogname], [reply-title], [reply-content], [reply-excerpt], [reply-url], [reply-author]</p>', __('Shortcodes', 'bbpress_notify'));
+	printf('<p>%s: [blogname], [reply-title], [reply-content], [reply-excerpt], [reply-url], [reply-replyurl], [reply-author]</p>', __('Shortcodes', 'bbpress_notify'));
 }
 
 

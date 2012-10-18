@@ -4,9 +4,9 @@ Author URI: http://www.andreas.bz.it/
 Plugin URI: http://bitbucket.org/abaumg/bbpress-notify
 Tags: bbpress
 Requires at least: 3.1
-Tested up to: 3.3.1
+Tested up to: 3.5
 Text Domain: bbpress_notify
-Stable tag: 0.2
+Stable tag: 0.2.1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=5X6KTATY2U6VC&lc=IT&item_number=bbpress%2dnotify
 
 This plugin integrates into bbPress and sends a notification via e-mail when new topics or replies are posted. It is fully configurable in the bbPress settings.
@@ -26,6 +26,9 @@ Settings include:
 
 
 == Changelog ==
+
+= 0.2.1 =
+* Added template tags "[topic-replyurl]" and "[reply-replyurl]"
 
 = 0.2 =
 * Improved selection of e-mail recipients; now it is possible to select multiple user roles
