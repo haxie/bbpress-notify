@@ -2,13 +2,13 @@
 /*
 Plugin Name: bbPress Notify
 Description: Notifies all registered users by e-mail when a new bbPress topic is created.
-Version: 0.2.1
+Version: 0.2.2
 Author: Andreas Baumgartner
 
-$Id: bbpress-notify.php 28:ae397256e7ed 2012-10-18 15:45 +0200 Andreas Baumgartner $
+$Id: bbpress-notify.php 33:c1fe2e747327 2014-12-08 22:43 +0100 Andreas Baumgartner $
 $Tag: tip $
 
-/*  Copyright 2012 Andreas Baumgartner (email: mail@andreas.bz.it)
+/*  Copyright 2012-2014 Andreas Baumgartner
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -25,9 +25,9 @@ $Tag: tip $
 */
 
 /* Search for translations */
-if (!load_plugin_textdomain('bbpress_notify','/wp-content/languages/'))
+if (!load_plugin_textdomain('bbpress_notify', false, dirname(plugin_basename(__FILE__)) . '/../../languages/'))
 {
-	load_plugin_textdomain('bbpress_notify','/wp-content/plugins/bbpress-notify/languages/');
+	load_plugin_textdomain('bbpress_notify', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 }
 
 
@@ -318,12 +318,12 @@ function admin_settings() {
 	add_settings_section('bbpress_notify_options', __('E-mail Notifications', 'bbpress_notify'), '_settings_intro_text', 'bbpress');
 
 	// Add form fields for all settings
-	add_settings_field('bbpress_notify_newtopic_recipients', __('Notifications about new topics are sent to', 'bbpress_notify'), _topic_recipients_inputfield, 'bbpress', 'bbpress_notify_options');
-	add_settings_field('bbpress_notify_newtopic_email_subject', __('E-mail subject', 'bbpress_notify'), _email_newtopic_subject_inputfield, 'bbpress', 'bbpress_notify_options');
-	add_settings_field('bbpress_notify_newtopic_email_body', __('E-mail body (template tags: [blogname], [topic-title], [topic-content], [topic-excerpt], [topic-author], [topic-url], [topic-replyurl])', 'bbpress_notify'), _email_newtopic_body_inputfield, 'bbpress', 'bbpress_notify_options');
-	add_settings_field('bbpress_notify_newreply_recipients', __('Notifications about replies are sent to', 'bbpress_notify'), _reply_recipients_inputfield, 'bbpress', 'bbpress_notify_options');
-	add_settings_field('bbpress_notify_newreply_email_subject', __('E-mail subject', 'bbpress_notify'), _email_newreply_subject_inputfield, 'bbpress', 'bbpress_notify_options');
-	add_settings_field('bbpress_notify_newreply_email_body', __('E-mail body (template tags: [blogname], [reply-title], [reply-content], [reply-excerpt], [reply-author], [reply-url], [reply-replyurl])', 'bbpress_notify'), _email_newreply_body_inputfield, 'bbpress', 'bbpress_notify_options');
+	add_settings_field('bbpress_notify_newtopic_recipients', __('Notifications about new topics are sent to', 'bbpress_notify'), '_topic_recipients_inputfield', 'bbpress', 'bbpress_notify_options');
+	add_settings_field('bbpress_notify_newtopic_email_subject', __('E-mail subject', 'bbpress_notify'), '_email_newtopic_subject_inputfield', 'bbpress', 'bbpress_notify_options');
+	add_settings_field('bbpress_notify_newtopic_email_body', __('E-mail body (template tags: [blogname], [topic-title], [topic-content], [topic-excerpt], [topic-author], [topic-url], [topic-replyurl])', 'bbpress_notify'), '_email_newtopic_body_inputfield', 'bbpress', 'bbpress_notify_options');
+	add_settings_field('bbpress_notify_newreply_recipients', __('Notifications about replies are sent to', 'bbpress_notify'), '_reply_recipients_inputfield', 'bbpress', 'bbpress_notify_options');
+	add_settings_field('bbpress_notify_newreply_email_subject', __('E-mail subject', 'bbpress_notify'), '_email_newreply_subject_inputfield', 'bbpress', 'bbpress_notify_options');
+	add_settings_field('bbpress_notify_newreply_email_body', __('E-mail body (template tags: [blogname], [reply-title], [reply-content], [reply-excerpt], [reply-author], [reply-url], [reply-replyurl])', 'bbpress_notify'), '_email_newreply_body_inputfield', 'bbpress', 'bbpress_notify_options');
 
 	// Register the settings as part of the bbPress settings
 	register_setting('bbpress', 'bbpress_notify_newtopic_recipients');
