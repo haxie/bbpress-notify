@@ -40,6 +40,7 @@ function on_activation()
 		wp_die( __('Sorry, you need to activate bbPress first.', 'bbpress_notify'));
 	}
 
+        
 	// Default settings
 	if (!get_option('bbpress_notify_newtopic_recipients'))
 	{
@@ -65,6 +66,11 @@ function on_activation()
 	{
 		update_option('bbpress_notify_newreply_email_body', __("Hello!\nA new reply has been posted by [reply-author].\nTopic title: [reply-title]\nTopic url: [reply-url]\n\nExcerpt:\n[reply-excerpt]"));
 	}
+
+        if (!get_option('bbpress_notify_blacklist'))
+        {
+            update_option('bbpress_notify_blacklist', array());
+        }
 
 	// Convert settings stored by 0.1 into arrays
 	$oldsettings_newtopic = get_option('bbpress_notify_newtopic_recipients');
@@ -303,11 +309,14 @@ function notify_new_reply($topic_id = 0, $forum_id = 0, $anonymous_data = false,
 function send_notification($recipients, $subject, $body)
 {
 	$headers = sprintf("From: %s <%s>\r\n", get_option('blogname'), get_bloginfo('admin_email'));
+        $blacklist = get_option('bbpress_notify_blacklist');
 	foreach ($recipients as $recipient_id)
 	{
 		$user_info = get_userdata($recipient_id);
 		if ($recipient_id == -1) { $email = get_bloginfo('admin_email'); } else { $email = (string)$user_info->user_email; }
-		@wp_mail($email, $subject, $body, $headers);
+                if (!in_array($email, $blacklist) && user_is($user_info->ID, "s2member_level4")) { 
+                    @wp_mail($email, $subject, $body, $headers);
+                }
 	}
 }
 
